@@ -1,12 +1,12 @@
 import os
 import telebot
-import subprocess
+from subprocess import STDOUT, check_call
 from telebot import types
 from flask import Flask, request
 from manejadores.musica import search_music, download_song
 
 # Inicializar el bot con tu token
-TOKEN = '7985588609:AAF8pSTKKDf3GrYDqckheQwqqweUFL2Clik'
+TOKEN = '7985588609:AAEpNNIRU1uDWUbdFISF9Wx2Hmx2KbDmwQ4'
 bot = telebot.TeleBot(TOKEN, threaded=False)
 WEBHOOK_URL = os.getenv("RENDER_EXTERNAL_URL")
 
@@ -98,7 +98,8 @@ def delete_webhook():
 
 @app.route("/install_ffmpeg", methods=["GET"])
 def install_ffmpeg():
-    subprocess.run(['sudo apt install ffmpeg'], capture_output=True, text=True)
+    check_call(['apt-get', 'install', '-y', 'filetoinstall'],
+               stdout=open(os.devnull,'wb'), stderr=STDOUT)
 
 if __name__ == "__main__":
     bot.infinity_polling()
