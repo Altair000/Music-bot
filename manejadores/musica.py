@@ -12,7 +12,7 @@ def download_song(url, user_id):
         'noplaylist': True,  # No descargar listas de reproducción
         'extractaudio': True,  # Solo extraer audio
         'postprocessors': [{
-            'key': 'FFmpegAudioConvertor',  # Convertir a formato mp3
+            'key': 'FFmpegExtractAudio',  # Convertir a formato mp3
             'preferredcodec': 'mp3',
             'preferredquality': '192',
         }],
