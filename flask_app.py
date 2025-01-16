@@ -98,7 +98,7 @@ def delete_webhook():
 
 @app.route("/install_ffmpeg", methods=["GET"])
 def install_ffmpeg():
-    check_call(['apt-get', 'install', '-y', 'filetoinstall'],
+    check_call(['apt-get', 'install', '-y', 'ffmpeg'],
                stdout=open(os.devnull,'wb'), stderr=STDOUT)
 
 if __name__ == "__main__":
