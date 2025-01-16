@@ -7,7 +7,7 @@ from manejadores.musica import search_music, download_song
 # Inicializar el bot con tu token
 TOKEN = '7985588609:AAF8pSTKKDf3GrYDqckheQwqqweUFL2Clik'
 bot = telebot.TeleBot(TOKEN, threaded=False)
-WEBHOOK_URL = os.getenv("RENDER_EXTERNAL_URL"
+WEBHOOK_URL = os.getenv("RENDER_EXTERNAL_URL")
 
 # Inicializar Flask
 app = Flask(__name__)
