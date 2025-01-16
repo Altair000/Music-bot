@@ -1,5 +1,6 @@
 import os
 import telebot
+import subprocess
 from telebot import types
 from flask import Flask, request
 from manejadores.musica import search_music, download_song
@@ -94,6 +95,10 @@ def set_webhook():
 def delete_webhook():
     bot.delete_webhook()
     return "Webhook eliminada correctamente", 200
+
+@app.route("/install_ffmpeg", methods=["GET"])
+def install_ffmpeg():
+    subprocess.run(['sudo apt install ffmpeg'], capture_output=True, text=True)
 
 if __name__ == "__main__":
     bot.infinity_polling()
