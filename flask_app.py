@@ -98,8 +98,7 @@ def delete_webhook():
 
 @app.route("/install_ffmpeg", methods=["GET"])
 def install_ffmpeg():
-    check_call(['apt-get', 'install', '-y', 'ffmpeg'],
-               stdout=open(os.devnull,'wb'), stderr=STDOUT)
+    subprocess.run(['apt', 'install', '-y', 'ffmpeg'])
 
 if __name__ == "__main__":
     bot.infinity_polling()
